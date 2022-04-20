@@ -12,7 +12,7 @@ set(OCCLUSION_CULLING_SOURCES
 
 if(MSVC)
     string(TOLOWER "${CMAKE_SYSTEM_PROCESSOR}" arch_lower)
-    if(arch_lower MATCHES "arm64" OR arch_lower MATCHES "aarch64" OR ${CMAKE_GENERATOR} MATCHES "(ARM64)" OR ${BUILD_ARCH} MATCHES "(ARM64)")
+    if(arch_lower MATCHES "arm64" OR arch_lower MATCHES "aarch64" OR ${CMAKE_GENERATOR} MATCHES "(ARM64)")
         message(STATUS "Occlusion culling: not x86 (64), use simde")
     else()
         if(NOT "${CMAKE_GENERATOR}" MATCHES "(Win64|IA64)")
@@ -45,3 +45,5 @@ if(UNIX OR MINGW)
 endif()
 
 add_library(occlusion_culling STATIC ${OCCLUSION_CULLING_SOURCES})
+add_executable(oc src/main.cpp)
+target_link_libraries(oc occlusion_culling)

@@ -152,6 +152,8 @@ typedef __m128i __mwi;
 // SIMD casting functions
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+static_assert(!std::is_same<__m128, __m128i>::value, "wrong");
+
 template<typename T, typename Y> FORCE_INLINE T simd_cast(Y A);
 template<> FORCE_INLINE __m128  simd_cast<__m128>(float A) { return _mm_set1_ps(A); }
 template<> FORCE_INLINE __m128  simd_cast<__m128>(__m128i A) { return _mm_castsi128_ps(A); }
