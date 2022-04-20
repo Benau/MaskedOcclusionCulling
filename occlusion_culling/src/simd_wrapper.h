@@ -1,0 +1,26 @@
+#define SIMDE_ENABLE_NATIVE_ALIASES 1
+#include "simde/x86/sse4.1.h"
+
+#ifndef _MM_FROUND_TO_NEG_INF
+#define _MM_FROUND_TO_NEG_INF SIMDE_MM_FROUND_TO_NEG_INF
+#endif
+
+#ifndef _MM_FROUND_NO_EXC
+#define _MM_FROUND_NO_EXC SIMDE_MM_FROUND_NO_EXC
+#endif
+
+#ifndef _MM_SET_ROUNDING_MODE
+#define _MM_SET_ROUNDING_MODE _MM_SET_ROUNDING_MODE
+#endif
+
+#ifndef _MM_ROUND_NEAREST
+#define _MM_ROUND_NEAREST SIMDE_MM_ROUND_NEAREST
+#endif
+
+#ifndef _MM_ROUND_UP
+#define _MM_ROUND_UP SIMDE_MM_ROUND_UP
+#endif
+
+#ifndef _MM_ROUND_DOWN
+#define _MM_ROUND_DOWN SIMDE_MM_ROUND_DOWN
+#endif
