@@ -18,17 +18,13 @@
 // Common SIMD math utility functions
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-template<class T> 
-T min(const T& a, const T& b)
-{
-	return (b < a) ? b : a;
-}
-
-template<class T> 
-T max(const T& a, const T& b)
-{
-	return (a < b) ? b : a;
-}
+#if defined(_MSC_VER) && defined(_M_ARM64)
+// Custom min max template doesn't work in MSVC ARM64
+using namespace std;
+#else
+template<typename T> FORCE_INLINE T max(const T &a, const T &b) { return a > b ? a : b; }
+template<typename T> FORCE_INLINE T min(const T &a, const T &b) { return a < b ? a : b; }
+#endif
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Common defines and constants
