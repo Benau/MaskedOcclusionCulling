@@ -20,6 +20,7 @@
 
 #if defined(_MSC_VER) && defined(_M_ARM64)
 // Custom min max template doesn't work in MSVC ARM64
+#include <algorithm>
 using namespace std;
 #else
 template<typename T> FORCE_INLINE T max(const T &a, const T &b) { return a > b ? a : b; }
