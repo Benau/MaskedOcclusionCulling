@@ -18,8 +18,17 @@
 // Common SIMD math utility functions
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-template<typename T> FORCE_INLINE T max(const T &a, const T &b) { return a > b ? a : b; }
-template<typename T> FORCE_INLINE T min(const T &a, const T &b) { return a < b ? a : b; }
+template<class T> 
+T min(const T& a, const T& b)
+{
+	return (b < a) ? b : a;
+}
+
+template<class T> 
+T max(const T& a, const T& b)
+{
+	return (a < b) ? b : a;
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Common defines and constants

@@ -13,8 +13,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        #arch: [i686, x86_64, aarch64]
-        arch: [aarch64]
+        arch: [i686, x86_64, aarch64]
+        #arch: [aarch64]
         os: [windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
