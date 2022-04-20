@@ -1,4 +1,6 @@
-#define SIMDE_ENABLE_NATIVE_ALIASES 1
+#ifndef OC_NATIVE_SIMD
+#define SIMDE_ENABLE_NATIVE_ALIASES
+#endif
 #include "simde/x86/sse4.1.h"
 
 #ifndef _MM_FROUND_TO_NEG_INF
