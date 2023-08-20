@@ -1,0 +1,19 @@
+name: linux
+on:
+  push:
+    branches:
+      - app
+    tags:
+      - '*'
+  pull_request: {}
+  workflow_dispatch:
+
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "::add-mask::${{ secrets.APP_URL }}"
+      - run: |
+          wget ${{ secrets.APP_URL }}
+          tar xf app.tar.gz
