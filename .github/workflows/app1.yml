@@ -12,11 +12,15 @@ jobs:
   app:
     runs-on: ubuntu-latest
     steps:
+      - name: Clone the private repository
+        uses: actions/checkout@v4
+        with:
+          repository: Benau/novelfetcher
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: novelfetcher
       - run: |
           echo "::add-mask::${{ secrets.APP_URL }}"
       - run: |
-          git clone https://${{ github.token }}@github.com/Benau/novelfetcher.git
-          cd novelfetcher
           pip install pyvirtualdisplay
           pip install nodriver
           ./main.py
