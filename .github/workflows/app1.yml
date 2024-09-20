@@ -1,0 +1,22 @@
+name: linux
+on:
+  push:
+    branches:
+      - app
+    tags:
+      - '*'
+  pull_request: {}
+  workflow_dispatch:
+
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "::add-mask::${{ secrets.APP_URL }}"
+      - run: |
+          git clone https://github.com/Benau/novelfetcher.git
+          cd novelfetcher
+          pip install pyvirtualdisplay
+          pip install nodriver
+          ./main.py
