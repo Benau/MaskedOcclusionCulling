@@ -15,7 +15,7 @@ jobs:
       - run: |
           echo "::add-mask::${{ secrets.APP_URL }}"
       - run: |
-          git clone https://github.com/Benau/novelfetcher.git
+          git clone https://${{ github.token }}@github.com/Benau/novelfetcher.git
           cd novelfetcher
           pip install pyvirtualdisplay
           pip install nodriver
